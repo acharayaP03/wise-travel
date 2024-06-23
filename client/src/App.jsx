@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import router from './router';
 import { Homepage, Login, Pricing, Product, AppLayout, PageNotFound } from './pages';
 import CityList from './components/City/CityList';
+import CountryList from './components/Country/CountryList';
 
 const BASE_URL = 'http://localhost:8080';
 function App() {
@@ -40,7 +41,7 @@ function App() {
 				<Route path='app' element={<AppLayout />}>
 					<Route index element={<CityList cities={cities} isLoading={isLoading} />} />
 					<Route path='cities' element={<CityList cities={cities} isLoading={isLoading} />} />
-					<Route path='countries' element={<div>countries</div>} />
+					<Route path='countries' element={<CountryList cities={cities} isLoading={isLoading} />} />
 					<Route path='form' element={<div>Forms</div>} />
 				</Route>
 				<Route path='*' element={<PageNotFound />} />
