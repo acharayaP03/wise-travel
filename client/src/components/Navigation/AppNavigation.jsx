@@ -6,14 +6,10 @@ export function AppNavigation() {
 		<nav className={styles.nav}>
 			<ul>
 				<li>
-					<NavLink to='cities' exact activeClassName={styles.active}>
-						Cities
-					</NavLink>
+					<NavLink to='cities'>Cities</NavLink>
 				</li>
 				<li>
-					<NavLink to='countries' exact activeClassName={styles.active}>
-						Countries
-					</NavLink>
+					<NavLink to='countries'>Countries</NavLink>
 				</li>
 			</ul>
 		</nav>
