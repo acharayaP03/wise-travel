@@ -31,7 +31,7 @@
 	"plugins": ["react-refresh"],
 	"rules": {
 		"react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
-		"no-unused-vars": "error", // Warn for unused variables
+		"no-unused-vars": "warn", // Warn for unused variables
 		"react/prop-types": "off"
 	}
 }
