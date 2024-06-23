@@ -1,0 +1,25 @@
+{
+	"name": "wisetravelserver",
+	"version": "1.0.0",
+	"description": "simple json server for wise travel",
+	"main": "server.js",
+	"type": "module",
+	"scripts": {
+		"serve:json": "nodemon server.js"
+	},
+	"keywords": [
+		"wise express",
+		"server",
+		"json",
+		"server"
+	],
+	"author": "trishten ac",
+	"license": "MIT",
+	"devDependencies": {
+		"nodemon": "^3.1.4"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.19.2"
+	}
+}
