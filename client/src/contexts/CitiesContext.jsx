@@ -1,4 +1,4 @@
-import { Children, createContext, useEffect, useState } from 'react';
+import { Children, createContext, useContext, useEffect, useState } from 'react';
 
 const BASE_URL = 'http://localhost:8080';
 const CitiesContext = createContext();
@@ -25,8 +25,17 @@ function CitiesProvider({ children }) {
 	}, []);
 
 	return (
-		<CitiesContext.Provider value={{ cities, isLoading }}> {Children} </CitiesContext.Provider>
+		<CitiesContext.Provider value={{ cities, isLoading }}> {children} </CitiesContext.Provider>
 	);
 }
 
-export { CitiesProvider, CitiesContext };
+function useCities() {
+	const context = useContext(CitiesContext);
+
+	if (!context) {
+		throw new Error('useCities must be used within a CitiesProvider');
+	}
+
+	return context;
+}
+export { CitiesProvider, useCities };
