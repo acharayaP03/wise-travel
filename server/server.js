@@ -28,6 +28,27 @@ app.get('/cities', (req, res) => {
 	});
 });
 
+// Route to get a city by ID
+app.get('/cities/:id', (req, res) => {
+	const cityId = parseInt(req.params.id, 10);
+	const citiesPath = path.join(__dirname, 'data', 'cities.json');
+
+	fs.readFile(citiesPath, 'utf-8', (err, data) => {
+		if (err) {
+			res.status(500).json({ error: 'Failed to read cities data' });
+		} else {
+			const cities = JSON.parse(data).cities;
+			const city = cities.find((city) => city.id === cityId);
+
+			if (city) {
+				res.json(city);
+			} else {
+				res.status(404).json({ error: 'City not found' });
+			}
+		}
+	});
+});
+
 app.listen(PORT, () => {
 	console.log(`Express server is running on port ${PORT}`);
 });
