@@ -1,28 +1,41 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import styles from './Map.module.css';
-import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvent } from 'react-leaflet';
 import { useState, useEffect } from 'react';
 import { useCities } from '../../contexts/CitiesContext';
+import { useGeolocation } from '../../hooks/useGeolocation';
+import { useUrlPosition } from '../../hooks/useUrlPosition';
+
+import styles from './Map.module.css';
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
+import Button from '../ResuableUI/Button';
 
 export default function Map() {
 	const [position, setPosition] = useState([38.727881642324164, -9.140900099907554]);
-	const [searchParams] = useSearchParams();
-	const navigate = useNavigate();
-
 	const { cities } = useCities();
-	console.log(cities);
+	const {
+		isLoading: isLoadingPosition,
+		position: geoLocationPosition,
+		getPosition,
+	} = useGeolocation();
 
-	const latFromParams = searchParams.get('lat');
-	const lngFromParams = searchParams.get('lng');
+	const [latFromParams, lngFromParams] = useUrlPosition(); // [38.727881642324164, -9.140900099907554
 
 	useEffect(() => {
-		if (!latFromParams || !lngFromParams) return;
-
-		setPosition([latFromParams, lngFromParams]);
+		if (latFromParams && lngFromParams) setPosition([latFromParams, lngFromParams]);
 	}, [latFromParams, lngFromParams]);
 
+	useEffect(() => {
+		if (!geoLocationPosition) return;
+		setPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
+	}, [geoLocationPosition]);
+
 	return (
-		<div className={styles.mapContainer} onClick={() => navigate('form')}>
+		<div className={styles.mapContainer}>
+			{!geoLocationPosition && (
+				<Button type='position' onClick={getPosition}>
+					{isLoadingPosition ? 'Loading...' : 'Use your position'}
+				</Button>
+			)}
+
 			<MapContainer center={position} zoom={6} scrollWheelZoom={true} className={styles.map}>
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -54,9 +67,14 @@ function ChangeCenter({ position }) {
 function DetectMapLocationClick() {
 	const navigate = useNavigate();
 
-	useMapEvent({
+	useMapEvents({
 		click: (e) => {
-			navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
+			e.originalEvent.stopPropagation();
+			const url = `/app/form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`;
+			window.history.replaceState(null, '', url);
+			return navigate(url);
 		},
 	});
+
+	return null;
 }
