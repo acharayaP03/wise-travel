@@ -13,6 +13,7 @@ function CitiesProvider({ children }) {
 			try {
 				setIsLoading(true);
 				const response = await fetch(`${BASE_URL}/cities`);
+				console.log(response);
 				const data = await response.json();
 				setCities(data);
 			} catch (error) {
