@@ -5,7 +5,7 @@
 	"main": "server.js",
 	"type": "module",
 	"scripts": {
-		"serve:json": "nodemon server.js"
+		"run:server": "nodemon server.js"
 	},
 	"keywords": [
 		"wise express",
