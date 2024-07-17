@@ -56,7 +56,7 @@ function City() {
 			</div>
 			<div>
 				<Button
-					type='back'
+					buttonType='back'
 					onClick={(e) => {
 						e.preventDefault();
 						navigate(-1);

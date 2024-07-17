@@ -31,7 +31,7 @@ export default function Map() {
 	return (
 		<div className={styles.mapContainer}>
 			{!geoLocationPosition && (
-				<Button type='position' onClick={getPosition}>
+				<Button buttonType='position' onClick={getPosition}>
 					{isLoadingPosition ? 'Loading...' : 'Use your position'}
 				</Button>
 			)}
@@ -41,8 +41,8 @@ export default function Map() {
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url='https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
 				/>
-				{cities.cities &&
-					cities.cities.map((city) => (
+				{cities &&
+					cities.map((city) => (
 						<Marker key={city.id} position={[city.position.lat, city.position.lng]}>
 							<Popup>
 								<span>{city.emoji}</span>
