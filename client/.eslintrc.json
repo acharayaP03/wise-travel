@@ -1,0 +1,37 @@
+{
+	"root": true,
+	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		"ecmaVersion": 2020,
+		"sourceType": "module",
+		"requireConfigFile": false,
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"babelOptions": {
+			"plugins": ["@babel/plugin-syntax-jsx"]
+		}
+	},
+	"env": {
+		"browser": true,
+		"es2020": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:react/jsx-runtime",
+		"plugin:react-hooks/recommended"
+	],
+	"ignorePatterns": ["dist", ".eslintrc.cjs"],
+	"settings": {
+		"react": {
+			"version": "18.2"
+		}
+	},
+	"plugins": ["react-refresh"],
+	"rules": {
+		"react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+		"no-unused-vars": "warn", // Warn for unused variables
+		"react/prop-types": "off"
+	}
+}

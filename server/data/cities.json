@@ -1,0 +1,76 @@
+{
+  "cities": [
+    {
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-10-31T15:59:59.138Z",
+      "notes": "My favorite city so far!",
+      "position": {
+        "lat": 38.727881642324164,
+        "lng": -9.140900099907554
+      },
+      "id": 73930385
+    },
+    {
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2027-07-15T08:22:53.976Z",
+      "notes": "",
+      "position": {
+        "lat": 40.46635901755316,
+        "lng": -3.7133789062500004
+      },
+      "id": 17806751
+    },
+    {
+      "cityName": "Berlin",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2027-02-12T09:24:11.863Z",
+      "notes": "Amazing 😃",
+      "position": {
+        "lat": 52.53586782505711,
+        "lng": 13.376933665713324
+      },
+      "id": 98443197
+    },
+    {
+      "cityName": "Binalong",
+      "country": "Australia",
+      "date": "2024-07-17T21:57:06.928Z",
+      "notes": "on in my own country",
+      "emoji": "🇦🇺",
+      "position": {
+        "lat": "-34.67387626588271",
+        "lng": "148.65600585937503"
+      },
+      "id": 98443199
+    },
+    {
+      "id": "@$dxRK1nBio#PnD",
+      "cityName": "Aldeanueva de San Bartolome",
+      "country": "Spain",
+      "date": "2024-07-20T10:04:58.638Z",
+      "notes": "dsad",
+      "emoji": "🇪🇸",
+      "position": {
+        "lat": "39.65645604812829",
+        "lng": "-5.141601562500001"
+      }
+    },
+    {
+      "id": "SDGZPMP7#RrlmoC",
+      "cityName": "Palenciana",
+      "country": "Spain",
+      "date": "2024-07-22T03:44:24.000Z",
+      "notes": "hehehe works",
+      "emoji": "🇪🇸",
+      "position": {
+        "lat": "37.2478212015543",
+        "lng": "-4.592285156250001"
+      }
+    }
+  ]
+}
